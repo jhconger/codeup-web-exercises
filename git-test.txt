@@ -1,2 +1,1 @@
-git add
- add
+Getting Git is legit.

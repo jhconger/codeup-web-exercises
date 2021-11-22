@@ -68,16 +68,81 @@ isNaN(Number.MAX_VALUE)
 console.log(isNaN(Number.MAX_VALUE))
 
 isNaN(Infinity)
+//false
+console.log(isNaN(Infinity))
+
 
 isNaN("true")
+//true
+console.log(isNaN("true"))
 
 isNaN(true)
+//false
+console.log(isNaN(true))
 
 isNaN("false")
+//true
+console.log(isNaN("false"))
 
 isNaN(false)
+//false
+console.log(isNaN(false))
 
 // to illustrate why the isNaN() function is needed:
 NaN == NaN
 
+!true
+//false
+console.log(!true)
 
+!false
+//true
+console.log(!false)
+
+!!true
+//true
+console.log(!!true)
+
+!!false
+//true, actually false
+console.log(!!false)
+
+!!0
+//false
+console.log(!!0)
+
+!!-0
+//false
+console.log(!!-0)
+
+!!1
+//true
+console.log(!!1)
+
+!!-1
+//false, actually true
+console.log(!!-1)
+
+!!0.1
+//true
+console.log(!!0.1)
+
+!!"hello"
+//true
+console.log(!!"hello")
+
+!!""
+//true, actually false
+console.log(!!"")
+
+!!''
+//false
+console.log(!!'')
+
+!!"false"
+//true
+console.log(!!"false")
+
+!!"0"
+//false, actually true
+console.log(!!"0")

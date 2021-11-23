@@ -167,7 +167,7 @@ var bear = 5;
 var hercules = 1;
 console.log((mermaid + bear + hercules)*3);
 
-
+//Ecercise 3.2
 var fhours = 10;
 var ghours = 6;
 var ahours = 4;
@@ -177,26 +177,26 @@ var awage = 380;
 console.log((fhours * fwage) + (ghours*gwage) + (ahours*awage));
 //7420
 
-var classnotfull = true;
-var classconflict = false;
-var clasnotfull || classconflict;
+//Exercise 3.3
+var classNotFull = true;
+var classConflict = false;
 
+if (!classNotFull && !classConflict)
+{
+    console.log("welcome to class!")}
+else {
+    console.log("sorry dude!")}
 
 //var purchaseSize
 //var offerExp = false
 //var premiumMember
-var validDiscount = offerExp && (purchaseSize > 2 || premiumMember);
+//var validDiscount = offerExp && (purchaseSize > 2 || premiumMember);
 
 var username = 'codeup';
 var password = 'notastrongpassword';
 
-Create a variable that holds a boolean value for each of the following conditions:
+password.length >= 5
+usernameValid  = passowrd.indexOf(username) === -1
+whitespace = username.trim() && password.trim()
+noWhitespace = username.trim() === username && password.trim()===password
 
-    the password must be at least 5 characters
-the password must not include the username
-the username must be no more than 20 characters
-neither the username or password can start or end with whitespace
-var passwordValid = password.length >= 5
-var usernameValid  = passowrd.indexOf(username) === -1
-var whitespace = username.trim() && password.trim()
-var noWhitespace = username.trim() === username && password.trim()===password

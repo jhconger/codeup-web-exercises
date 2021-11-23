@@ -146,3 +146,55 @@ console.log(!!"false")
 !!"0"
 //false, actually true
 console.log(!!"0")
+
+var sample = "Hello Codeup Students";
+sample.length;
+console.log(sample.length)
+//21
+
+console.log(sample.toUpperCase())
+console.log(sample.replace("Students", "Class"))
+console.log(sample.indexOf('c'))
+//-1
+console.log(sample.indexOf('C'))
+//6
+
+console.log(sample.substring(6 , 12))
+
+
+var mermaid = 3
+var bear = 5;
+var hercules = 1;
+console.log((mermaid + bear + hercules)*3);
+
+
+var fhours = 10;
+var ghours = 6;
+var ahours = 4;
+var fwage = 350;
+var gwage = 400;
+var awage = 380;
+console.log((fhours * fwage) + (ghours*gwage) + (ahours*awage));
+//7420
+
+var classnotfull = true;
+var classconflict = false;
+var clasnotfull || classconflict;
+
+
+//var purchaseSize
+//var offerExp = false
+//var premiumMember
+var validDiscount = offerExp && (purchaseSize > 2 || premiumMember);
+
+var username = 'codeup';
+var password = 'notastrongpassword';
+
+Create a variable that holds a boolean value for each of the following conditions:
+
+    the password must be at least 5 characters
+the password must not include the username
+the username must be no more than 20 characters
+neither the username or password can start or end with whitespace
+var passwordValid = password.length >= 5
+var usernameValid  = passowrd.indexOf(username) === -1

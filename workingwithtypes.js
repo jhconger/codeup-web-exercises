@@ -198,3 +198,5 @@ the username must be no more than 20 characters
 neither the username or password can start or end with whitespace
 var passwordValid = password.length >= 5
 var usernameValid  = passowrd.indexOf(username) === -1
+var whitespace = username.trim() && password.trim()
+var noWhitespace = username.trim() === username && password.trim()===password

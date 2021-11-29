@@ -171,7 +171,7 @@ console.log(calculateTip(0.15, 33.42))
 // //  * and 1). It should return the result of applying the discount to the original
 // //  * price.
 function applyDiscount(price, discount){
-    return (price * discount +"%")
+    return price - (price * discount)
 }
 console.log(applyDiscount(100,.2))
 // //  * Example:

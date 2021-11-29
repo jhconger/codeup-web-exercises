@@ -9,7 +9,7 @@ string2
 
 '3 + 4 is ' + 3 + 4
 // how could you make this produce the correct output?
-3+4 is 34
+//3+4 is 34
 '3 + 4 is 34'
 '3 + 4 is ' + (3 + 4)
 '3 + 4 is 7'

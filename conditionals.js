@@ -99,32 +99,32 @@
 //  * Write a function named `calculateTotal` which accepts a lucky number and total
 //  * amount, and returns the discounted price.
 //  *
-function calculateTotal(luckyNumber, totalAmount){
-let discountedPrice
-
-switch (luckyNumber) {
-    case 1:
-        discountedPrice = (totalAmount - (totalAmount * .10));
-        break;
-    case 2:
-        discountedPrice = (totalAmount - (totalAmount * .25));
-        break;
-    case 3:
-        discountedPrice = (totalAmount - (totalAmount * .35));
-        break;
-    case 4:
-        discountedPrice = (totalAmount - (totalAmount * .50));
-        break;
-    case 5:
-        discountedPrice = (totalAmount - totalAmount);
-        break;
-    default:
-        discountedPrice = totalAmount;
-}
- return discountedPrice
-}
-
-console.log(calculateTotal(5,100))
+// function calculateTotal(luckyNumber, totalAmount){
+//     let discountedPrice
+//
+//     switch (luckyNumber) {
+//         case 1:
+//             discountedPrice = (totalAmount - (totalAmount * .10));
+//             break;
+//         case 2:
+//             discountedPrice = (totalAmount - (totalAmount * .25));
+//             break;
+//         case 3:
+//             discountedPrice = (totalAmount - (totalAmount * .35));
+//             break;
+//         case 4:
+//             discountedPrice = (totalAmount - (totalAmount * .50));
+//             break;
+//         case 5:
+//             discountedPrice = (totalAmount - totalAmount);
+//             break;
+//         default:
+//             discountedPrice = totalAmount;
+//     }
+//     return discountedPrice
+// }
+//
+// console.log(calculateTotal(5,100))
 //  * Example:
 //  * calculateTotal(0, 100) // returns 100
 //  * calculateTotal(4, 100) // returns 50
@@ -143,9 +143,9 @@ console.log(calculateTotal(5,100))
 //  * price before the discount was, and what their price after the discount is.
 //  */
 // // Generate a random number between 0 and 6
-var luckyNumber = Math.floor(Math.random() * 6);
-let totalAmount = prompt("Please enter your bill total.")
-alert("Your lucky number was " + luckyNumber + ". Your total bill was " + totalAmount + ". Your total bill after discounts is " + (calculateTotal(luckyNumber, totalAmount)))
+// var luckyNumber = Math.floor(Math.random() * 6);
+// let totalAmount = prompt("Please enter your bill total.")
+// alert("Your lucky number was " + luckyNumber + ". Your total bill was " + totalAmount + ". Your total bill after discounts is " + (calculateTotal(luckyNumber, totalAmount)))
 
 // /**
 //  * TODO:
@@ -165,3 +165,32 @@ alert("Your lucky number was " + luckyNumber + ". Your total bill was " + totalA
 //  * Can you refactor your code to use functions?
 //  * HINT: The way we prompt for a value could be improved
 //  */
+let confirmed = confirm("Would you like to enter a number today?");
+if (confirmed === true) {
+    let putNumber = prompt("Enter a number of your choosing: ");
+    alert("The number you entered is an " + evenOrOdd() + " number.");
+    alert("The number you entered plus 100 is " + addHundred());
+    alert("The number you have entered is a " + positiveOrNegative + " number.");
+} else {
+    alert("You have entered something other than a number!");
+}
+function evenOrOdd(number) {
+    if (number % 2 == 0)
+        return "even";
+    else
+        return "odd";
+}
+
+function addHundred(number) {
+    return number +=100;
+}
+
+function positiveOrNegative(number) {
+    if (number > 0)
+        return "positive ";
+    else if (number < 0)
+        return "negative ";
+    else
+        return "illogical number";
+}
+

@@ -241,11 +241,79 @@
 // TODO: using prompt() and alert(), write a loop that will continue to ask for the correct password until the
 // correct password is given.
 
-function getPassword(){
-    var correct = "codeup";
-    var guess = "";
-    while (guess != correct){
-        guess = prompt("Password?");
-    } // end while
-    alert("You may proceed");
-}
+// function getPassword(){
+//     var correct = "codeup";
+//     var guess = "";
+//     while (guess != correct){
+//         guess = prompt("Password?");
+//     } // end while
+//     alert("You may proceed");
+// }
+//
+// for (1; 2; 3){
+//     1. starting point
+//     2. stopping point
+//     3. how to iterate
+//
+// }
+//
+//  for(let i = 0; i<15; i+=3) {
+//      console.log("my favorite number is: " + i)
+//  }
+//  let animals = ["frog", "horse", "cat", "horse"];
+//  // for(let i = 0; i<animals.length; i++) {
+//  //     console.log("my fav animal is: " + animals[i]);
+//  // }
+//
+//  let i = 0;
+//  while(i<animals.length) {
+//      console.log("my fav animal is: " + animals[i]); i++;
+//  }
+// let dozens = 0;
+
+// 1. starting point
+// 2. stopping point
+// 3. how to iterate
+// for(let eggs = 0; eggs <= 48; eggs++){;
+//     if(eggs %12===0){
+//         dozens++
+//     }
+//     console.log(dozens);
+//     console.log(eggs);
+// }
+//
+// //
+// // // for(let eggs = 0; eggs<)
+// // let dozens = 0;
+// // for (let eggs = 0; eggs <= 4; eggs++){
+// //     dozens= eggs * 12;
+// //     console.log("dozens : ", eggs);
+// //     console.log("eggs ", dozens);
+// // }
+// // //NESTED LOOPS
+// // for(let counter = 1; counter <=10; counter++) {
+// //     console.log("FIRST counter: " +counter);
+// //     for(let counterTwo = 5; counterTwo > 0; counterTwo--){
+// //         console.log("SECOND counter: " + counterTwo);
+// //     }
+// // }
+//
+// var foods = ["sushi", "steak", ["love", "hate", "mmmm"],"pad thai", "bbq", "shrimp"];
+//
+// // foods[0] += " 1"
+// // foods[1] += " 2"
+// // foods[2] += " 3"
+// // foods[3] += " 4"
+// // foods[4] += " 5"
+// // console.log(
+// // foods.filter(function (foods) {
+// //     return foods.includes("i")
+// // }));
+// // let sliced =  foods.slice(2,5)
+// // console.log(sliced)
+let dog = {
+    breed: "Husky",
+    colors: ["White, Grey"],
+    sex: "F",
+    isFloofer: true
+};

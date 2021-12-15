@@ -5,36 +5,62 @@ body {
     margin: 1px;
 }
 nav {
+    height: 40px;
     background: darkgray;
+    display: flex;
+    justify-content: space-between;
 }
 ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    /*padding: 0;*/
+    display: flex;
+}
+.left-item{
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    padding: 0 ;
+ }
+.middle-item{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding-right: 130px;
 }
+.right-item{
+    display: flex;
+    text-decoration: none;
+    color: black;
+    font-family: monospace ;
+    align-items: center;
+    margin: 0;
+    padding-left: 25px;
+}
+.right-items{
+    paddind-left: 25px;
+}
+
 nav a {
     text-decoration: none;
     color: black;
-    font-family: Verdana;
+    font-family: 'Montserrat', sans-serif;
     display: inline-block; /* inline-block to increase clickable area beyond the text */
-    padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
+    padding: 0 10px;
 }
 nav a:hover {
-    background: white;
+    background: blue;
 }
-nav ul li:nth-child(5) {
-    /*
-        this allows the last flex item to be right justified
-        by filling remaining space to the left of the flex item with margin
-    */
-    align-content: space-around;
-}
-nav ul li:nth-child(6) {
-    /*
-        this allows the last flex item to be right justified
-        by filling remaining space to the left of the flex item with margin
-    */
-    margin-left: auto;
-}
+/*nav ul li:nth-child(5) {*/
+/*    !**/
+/*        this allows the last flex item to be right justified*/
+/*        by filling remaining space to the left of the flex item with margin*/
+/*    *!*/
+/*    align-content: space-around;*/
+/*}*/
+/*nav ul li:nth-child(6) {*/
+/*    !**/
+/*        this allows the last flex item to be right justified*/
+/*        by filling remaining space to the left of the flex item with margin*/
+/*    *!*/
+/*    margin-left: auto;*/
+/*}*/

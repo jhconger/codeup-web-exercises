@@ -1,0 +1,40 @@
+/* screen sizes 500px and up */
+@media screen and (min-width:300px) and (max-width:339px) {
+    body{
+
+    }
+    .alert-info {
+        box-sizing: border-box;
+        padding: 10px;
+        display: flex;
+        background-color: paleturquoise;
+        justify-content: center;
+        border-style: solid;
+        border-color: lightgrey;
+        border-width: 2px;
+
+    }
+}
+@media screen and (min-width:300px) and (max-width:339px) {
+    h1 {
+        display: flex;
+        justify-content: center;
+    }
+}
+@media screen and (min-width:300px) and (max-width:339px) {
+    .nav-links{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0;
+    }
+    .nav-links > li{
+        display: flex;
+        box-sizing: border-box;
+        padding: 10px;
+        background-color: lightgray;
+        margin-top: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+}

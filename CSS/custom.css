@@ -3,57 +3,98 @@
 }
 body {
     margin: 1px;
+    background-color: lightgray;
 }
-nav {
-    height: 60px;
-    background: darkgray;
-    display: flex;
-    justify-content: space-between;
-}
+
 .navbar{
-    display: flex;
+    background-color: lightgray;
+    height: 40px;
 }
-ul {
+.left-item{
+    align-items:center;
+    margin: 0;
+    padding: 0;
     list-style: none;
     /*padding: 0;*/
     display: flex;
+    text-decoration: none;
 }
-.left-item{
-    display: flex;
 }
 .form-label {
-    height: 40px;
-    width: 300px;
+    width: 200px;
+    background-color: #ffffff;
+}
+.form-control{
+    width: 100px;
 }
 .middle-item{
-    display: flex;
-    align-content: center;
-    justify-self: left;
-    justify-content: flex-start;
-    padding-right: 125em;
+
 }
 .right-item{
-    display: flex;
-    text-decoration: none;
-    color: black;
-    font-family: monospace ;
-    align-items: center;
     margin: 0;
-    padding-left: 25px;
-    justify-content: center;
+    padding-bottom: 5px;
+    list-style: none;
 }
 .right-items{
-    align-content: center;
-    justify-content: center;
-    padding-bottom: 20px;
+
 }
 nav a {
     text-decoration: none;
     color: black;
     font-family: 'Montserrat', sans-serif;
-    display: inline-block; /* inline-block to increase clickable area beyond the text */
+    display: inline-block;
     padding: 0 10px;
 }
 nav a:hover {
     background: darkgrey;
+    height: 20px;
+}
+.jumbotron{
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.jumbotron-container {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    background-image: url(../assets/pizza.png);
+    height: 100%;
+    margin: 0;
+}
+.layer{
+    margin: 0;
+
+
+
+}
+.jumbotron-container::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+
+}
+.jumbotron-content {
+    position: relative;
+    margin: 0;
+
+}
+.container-fluid{
+    margin: 0 0 0 0;
+    padding: 0;
+    background-color: rgba(211, 211, 211, 0.3);
+
+}
+.text-center{
+    margin: 0;
+    padding: 0;
+    color: black;
+    background-color: rgba(211, 211, 211, 0.3);
+
+
 }

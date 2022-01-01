@@ -164,7 +164,7 @@ a:hover,a:focus{
     font-size: 16px;
     letter-spacing: .5px;
     line-height: 30px;
-    padding: 25px 20px;
+    padding: 0;
     box-shadow: 0 0 10px -5px rgba(100, 149, 237, 0.99);
     position: relative;
 }
@@ -172,6 +172,14 @@ a:hover,a:focus{
     font-weight: 300;
     text-transform: uppercase;
     margin-top: 0;
+}
+.card1{
+    backgrounc-color: darkgray;
+
+
+}
+.btn-primary{
+    alignment: right;
 }
 @media only screen and (max-width: 767px){
     .tab .nav-tabs li a{ padding: 10px 20px; }
@@ -200,8 +208,8 @@ JavaScript (Tab depend on jQuery and Bootstrap.)
 2
 <script src="https://partner.googleadservices.com/gampad/cookie.js?domain=bestjquery.com&callback=_gfp_s_&client=ca-pub-3311815518700050&cookie=ID%3D3369f14fafeeaefc-22e1cd14eecf0081%3AT%3D1640970141%3ART%3D1640970141%3AS%3DALNI_MbgfSVRtVkwgTh-4lUvTZkKmllOqw"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202112060101/show_ads_impl_fy2019.js" id="google_shimpl"></script><script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
-.button{
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     align-items: right;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  License Terms

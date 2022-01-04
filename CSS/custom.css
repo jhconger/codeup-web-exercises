@@ -138,8 +138,7 @@ a:hover,a:focus{
 .tab .nav-tabs li a:hover,
 .tab .nav-tabs li.active {
     color: #94a1a6;
-    border-color: transparent;
-    border: none;
+    border: solid 1em darkgray;
 }
 .tab .nav-tabs li a:before{
     content: "";
@@ -178,6 +177,7 @@ a:hover,a:focus{
     alignment: right;
 }
 .card-body{
+    width: 100%;
     margin: 0;
     padding: 0;
 }
@@ -205,23 +205,46 @@ a:hover,a:focus{
 }
 .badge{
     font-size: 14px;
+    margin: 5px;
 }
 
 .btn:hover {
     background-color: steelblue;
 }
 .card-footer{
+    background-color: lightgray;
     display: flex;
     justify-content: right;
+    padding: 0;
 }
 .btn-secondary{
     background-color: blue;
 }
 .card{
-    margin: 5px;
-    padding: 5px;
+    margin: 10px;
+    padding: 0;
+}
+.card-text{
+    margin: 0;
+    padding-left: 10px;
 }
 
+.container1{
+    padding-left: 10px;
+}
+.container2{
+    padding-left: 10px;
+}
+hr{
+    margin: 0;
+}
+select{
+    width: 95%;
+    margin: 10px;
+}
+.col{
+    padding: 0;
+}
 /*JavaScript (Tab depend on jQuery and Bootstrap.)*/
 /*1*/
 /*2*/

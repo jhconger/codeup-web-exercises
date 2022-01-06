@@ -1,0 +1,18 @@
+.container{
+    border: solid 2px darkgrey;
+    justify-content: center;
+    align-content: center;
+    text-align: center ;
+}
+.row{
+    border: solid 2px darkgrey;
+    justify-content: center;
+    align-content: center;
+    text-align: center ;
+}
+.col-sm{
+    border: solid 2px darkgrey;
+    justify-content: center;
+    align-content: center;
+    text-align: center ;
+}

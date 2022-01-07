@@ -1,0 +1,64 @@
+@media only screen and (min-width: 76px){
+    .icon{
+        position: relative;
+        bottom: 100px;
+    }
+}
+.icon{
+    position: relative;
+    bottom: 35px;
+
+}
+.navbar{
+    background-color: white;
+    height: 50px;
+}
+.navbars{
+    background-color: #E6E6E6;
+    height: 50px;
+}
+.contact>a{
+    text-decoration: none;
+    color: #333333;
+}
+.container{
+    background-color: #E6E6E6;
+    padding: 0;
+}
+
+.circle {
+    border: solid 5px #F0F0F0;
+    border-radius: 50%;
+    color: white;
+    font-family: "Anton";
+    height: 105px;
+    width: 105px;
+    text-align: center;
+    vertical-align: center;
+    line-height: 95px;
+    display: inline-block;
+}
+
+.red {
+    background-color: #E6563B;
+}
+
+.orange {
+    background-color: #eb9d3a;
+}
+
+.green {
+    background-color: #7cb06c;
+}
+
+.blue {
+    background-color: #00aba9;
+}
+
+.anton {
+    font-family: "Anton";
+}
+
+.abel{
+    font-family: "Abel";
+}

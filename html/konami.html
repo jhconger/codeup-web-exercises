@@ -5,9 +5,9 @@
 </head>
 <body>
 <h1>Konami Code</h1>
+<p>Please enter the Konami Code using your keyboard.</p>
 
 <script src="../js/jquery-2.2.4.js"></script>
-<script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
 
 <script>
     "use strict";
@@ -24,7 +24,7 @@
         "text-align": "center",
         "margin-top": "500px"
     });
-    // $('p').css({"text-align":"center"})
+
     $(document).keyup(function (event) {
         console.log(event.keyCode);
     });
@@ -37,7 +37,6 @@
         if (pressed.join('').includes(secretCode)) {
             alert("You have added 30 lives!")
             $('body').css({"background-color": "black", "color": "blue"});
-
             var intervalId = window.setInterval(function () {
                 cornify_add();
             }, 5);
@@ -45,8 +44,8 @@
         console.log(pressed);
     })
 </script>
-<P>Please enter the Konami Code using your keyboard.</P>
-
 </body>
+
+<script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
 </html>
-<!--konami.html:15 38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13-->
+

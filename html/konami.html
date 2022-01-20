@@ -26,6 +26,7 @@
             if (pressed.join('').includes(secretCode)) {
                 alert("You have added 30 lives!")
                 cornify_add();
+                $('body').css({"background-color":"black", "color":"blue"});
             }
                 console.log(pressed);
         })

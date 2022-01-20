@@ -12,27 +12,38 @@
 <script>
     "use strict";
 
-
-
-    $(document).keyup(function(event){
+    $('body').css({
+        "background-color": "coral",
+        "font-size": "32px",
+        "color": "blue",
+        "width": "100%",
+        "height": "100px",
+        "display": "inline-block",
+        "align-items": "center",
+        "justify-content": "center",
+        "text-align": "center",
+        "margin-top": "500px"
+    });
+    // $('p').css({"text-align":"center"})
+    $(document).keyup(function (event) {
         console.log(event.keyCode);
     });
-        var pressed = [];
-        var secretCode =  '3838404037393739666513'
-            window.addEventListener("keyup", (e) => {
-            console.log(e.key);
-            pressed.push(event.keyCode);
-            pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
-            if (pressed.join('').includes(secretCode)) {
-                alert("You have added 30 lives!")
+    var pressed = [];
+    var secretCode = '3838404037393739666513'
+    window.addEventListener("keyup", (e) => {
+        console.log(e.key);
+        pressed.push(event.keyCode);
+        pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+        if (pressed.join('').includes(secretCode)) {
+            alert("You have added 30 lives!")
+            $('body').css({"background-color": "black", "color": "blue"});
+
+            var intervalId = window.setInterval(function () {
                 cornify_add();
-                $('body').css({"background-color":"black", "color":"blue"});
-            }
-                console.log(pressed);
-        })
-
-
-console.log(secretCode)
+            }, 5);
+        }
+        console.log(pressed);
+    })
 </script>
 <P>Please enter the Konami Code using your keyboard.</P>
 

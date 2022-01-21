@@ -64,7 +64,7 @@
 
 var i = 0;
 var character='';
-let strings = "How are you doing today?";
+let strings = "How are you doing ,.@$#today?";
 const myArray = strings.split("");
 for (i = 0; i < myArray.length; i++) {
     console.log(myArray[i]);
@@ -79,6 +79,8 @@ character = strings.charAt(i);
         }
         if (character == character.toLowerCase()){
             alert ('lower case true');
+        } else {
+            alert("this is not a letter")
         }
 }
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+<p id="textfield">Please enter the Konami Code using your keyboard.</p>
+
+<script src="../js/jquery-2.2.4.js"></script>
+
+<script>
+    "use strict";
+
+    $('body').css({
+        "background-color": "coral",
+        "font-size": "32px",
+        "color": "blue",
+        "width": "100%",
+        "height": "100px",
+        "display": "inline-block",
+        "align-items": "center",
+        "justify-content": "center",
+        "text-align": "center",
+        "margin-top": "500px"
+    });
+
+    $(document).keyup(function (event) {
+        console.log(event.keyCode);
+    });
+    var pressed = [];
+    var secretCode = '3838404037393739666513'
+    $(document).keyup(
+    (e) => {
+        console.log(e.key);
+        pressed.push(event.keyCode);
+        pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+        if (pressed.join('').includes(secretCode)) {
+            alert("You have added 30 lives!")
+            $('body').css({"background-color": "black", "color": "blue"});
+            var intervalId = window.setInterval(function () {
+                cornify_add();
+            }, 5);
+        }
+        console.log(pressed);
+    })
+
+    // play a song when user interacts with page
+    let song = new Audio("../assets/Absolution.webm");
+
+    $( "body" ).hover(function () {
+
+        var volume = song.volume;
+        console.log(song.volume); // 1
+        song.volume = 0.95;
+        song.play();
+    });
+</script>
+</body>
+
+<script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</html>
+

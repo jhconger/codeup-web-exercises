@@ -62,25 +62,44 @@
 //
 // input example: "bJIENsdfRAIRVIrsRFAijgRar"
 
-var i = 0;
-var character='';
-let strings = "How are you doing ,.@$#today?";
-const myArray = strings.split("");
-for (i = 0; i < myArray.length; i++) {
-    console.log(myArray[i]);
+// var i = 0;
+// var character='';
+// let strings = "How are you doing ,.@$#today?";
+// const myArray = strings.split("");
+// for (i = 0; i < myArray.length; i++) {
+//     console.log(myArray[i]);
+//
+//
+// character = strings.charAt(i);
+//     if (!isNaN(character * 1)){
+//         alert('character is numeric');
+//     }else{
+//         if (character == character.toUpperCase()) {
+//             alert ('upper case true');
+//         }
+//         if (character == character.toLowerCase()){
+//             alert ('lower case true');
+//         } else {
+//             alert("this is not a letter")
+//         }
+// }
+// }
 
+function sumDigitsFromString(str) {
+    let nums = [];
+    let sum = 0;
 
-character = strings.charAt(i);
-    if (!isNaN(character * 1)){
-        alert('character is numeric');
-    }else{
-        if (character == character.toUpperCase()) {
-            alert ('upper case true');
+    for (let i = 0; i < str.length; i++) {
+        if (!isNaN(Number(str[i]))) {
+            nums.push(Number(str[i]));
         }
-        if (character == character.toLowerCase()){
-            alert ('lower case true');
-        } else {
-            alert("this is not a letter")
-        }
+    }
+    console.log(nums);
+    for (let i = 0; i < nums.length; i++) {
+        sum += nums[i];
+    }
+    return sum;
 }
-}
+
+// Test it
+console.log(sumDigitsFromString("42958372" + ""));

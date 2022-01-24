@@ -6,24 +6,29 @@
     <style>
 
         body {
-            font-family: 'Bebas Neue', cursive;
             box-shadow: rgba(0, 0, 0, 0.17) 0 -5px 5px 0 inset, rgba(0, 0, 0, 0.15) 0 -5px 5px 0 inset, rgba(0, 0, 0, 0.1) 0 -5px 5px 0 inset, rgba(0, 0, 0, 0.06) 0 2px 1px, rgba(0, 0, 0, 0.09) 0 5px 5px, rgba(0, 0, 0, 0.09) 0 5px 5px, rgba(0, 0, 0, 0.09) 0 5px 5px, rgba(0, 0, 0, 0.09) 0 5px 5px;
 
             background-image: image("../assets/national parks.jpg");
             background-size: 400% 100%;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .blue {
+            background-color: blue;
         }
 
         .invisible {
            visibility: hidden;
         }
         .highlighted  {
-            background-color: deeppink;
+            background-color: #ffc400;
         }
     </style>
 </head>
 <body><img class="photo" src="../assets/national parks.jpg">
 <p>National Parks</p>
-<button>See What This Does!</button>
+<button id="disappear">See What This Does!</button>
 <dl>
     <dt id="1">Largest Park Site</dt>
     <dd>Wrangell-St. Elias National Park & Preserve, Alaska.  Yellowstone National Park, the world's first national park and a UNESCO World Heritage site, is enormous.
@@ -116,6 +121,35 @@
         Northern animals and vegetation can be found at the park's higher elevations, while their Southern brethren are represented at the lower elevations.
     </dd>
 </dl>
+<button id="change">Change</button>
+<h3>Wrangell-St. Elias National Park & Preserve</h3>
+<ul  id="wrangell">
+    <li>It would take six Yellowstones to fill Wrangell-St. Elias' 13.2 million acres.</li>
+    <li>Wrangell-St. Elias is also home to the nation's largest glacial system.</li>
+    <li>More than 25% of Wrangell-St. Elias is covered by glaciers.</li>
+    <li>This park is home to nine of the 16 highest US peaks</li>
+</ul>
+
+<h3>Hot Springs National Park</h3>
+<ul id="hot-springs">
+    <li>Hot Springs is the smallest of the 61 national parks in the country.</li>
+    <li>The Arkansas park is so small -- just 5,550 acres -- that it could fit into Wrangell-St. Elias National Park nearly 2,400 times.</li>
+    <li>This park contains 47 hot springs coming out of Hot Springs Mountain at 143° Fahrenheit (62° Celsius).</li>
+    <li>It was first protected as a reservation in 1832 because of the popularity of its geothermal spring water for therapeutic bathing.</li>
+</ul>
+
+<h3>General Sherman, Sequoia & Kings Canyon National Parks</h3>
+<ul id="sherman">
+    <li>The largest tree in the world by volume (over 52,500 cubic feet), the General Sherman Tree is the main attraction in Sequoia National Park.</li>
+    <li>General Sherman's circumference at the ground is a whopping 102.6 feet and the largest branch has a diameter of nearly 7 feet.</li>
+    <li>The General Grant Tree, located about 30 miles away in Kings Canyon National Park, is the world's second-largest tree by volume, measuring over 46,600 cubic feet.</li>
+    <li>While these trees may not be the tallest they are the largest in the nation.  That honor goes to the redwood trees.</li>
+</ul>
+<div class="pic" id="one"></div>
+
+<div class="pic" id="two"></div>
+
+<div class="pic" id="three"></div>
 <script>
 
 </script>

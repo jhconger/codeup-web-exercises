@@ -6,7 +6,7 @@
 <body>
 
 <h1>My Tool Store</h1>
-
+<button id="add">REFRESH</button>
 <table id="products">
     <thead>
         <tr>
@@ -25,14 +25,39 @@
 (function() {
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-    $.ajax("/data/inventory.json").done(function(data, status) {
-        console.log("request is done!");
+
+    $.ajax("/data/inventory.json")
+        .done(function(data, status, jqXhr) {
+        alert("AJAX call completed successfully!");
+        console.log("Request status: " + status);
+        console.log("Data returned from server:");
         console.log(data);
-    });
+        })
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
+
+    $.ajax("/data/inventory.json")
+       .done(function (data) {
+            var tr;
+            for (var i = 0; i < data.length; i++) {
+                tr = $('<tr/>');
+                tr.append("<td>" + data[i].title + "</td>");
+                tr.append("<td>" + data[i].quantity + "</td>");
+
+                tr.append("<td>" + data[i].price + "</td>");
+                tr.append("<td>" + data[i].categories + "</td>");
+
+                $('#insertProducts').append(tr);
+            }
+
+    $("button").click(function(event) {
+        $.post("/data/inventory.json", function (result) {
+            alert("Response from request: " + data.stringify(result));
+        })
+    })
+       });
 })();
 </script>
 

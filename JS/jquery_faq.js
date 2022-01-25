@@ -10,7 +10,6 @@ $(document).ready(function() {
 $('dt') .click(function(event) {
     $(this).toggleClass('highlighted');
 });
-// $('li').addClass('bold')
 $('h3').click(function(event) {
     $(this).next().children().toggleClass('bold');
 });

@@ -85,21 +85,50 @@
 // }
 // }
 
-function sumDigitsFromString(str) {
-    let nums = [];
-    let sum = 0;
+// function sumDigitsFromString(str) {
+//     let nums = [];
+//     let sum = 0;
+//
+//     for (let i = 0; i < str.length; i++) {
+//         if (!isNaN(Number(str[i]))) {
+//             nums.push(Number(str[i]));
+//         }
+//     }
+//     console.log(nums);
+//     for (let i = 0; i < nums.length; i++) {
+//         sum += nums[i];
+//     }
+//     return sum;
+// }
+//
+// // Test it
+// console.log(sumDigitsFromString("42958372" + ""));
 
-    for (let i = 0; i < str.length; i++) {
-        if (!isNaN(Number(str[i]))) {
-            nums.push(Number(str[i]));
+let str = `42992338111134`
+let strArray = str.split("")
+let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) !== index)
+
+console.log(findDuplicates(strArray))
+console.log([...new Set(findDuplicates(strArray))])
+// function flattenArray(data) {
+//     const initialValue = [str.split];
+//     return data.reduce((total, value) => {
+//
+//
+//         return total(Array.isArray(value) ? flattenArray(value) : value);
+//     });
+// }
+function getFrequency(string) {
+    var freq = {};
+    for (var i=0; i<string.length;i++) {
+        var character = string.charAt(i);
+        if (freq[character]) {
+            freq[character]++;
+        } else {
+            freq[character] = 1;
         }
     }
-    console.log(nums);
-    for (let i = 0; i < nums.length; i++) {
-        sum += nums[i];
-    }
-    return sum;
-}
 
-// Test it
-console.log(sumDigitsFromString("42958372" + ""));
+    return freq;
+};
+console.log(getFrequency(`42992338111134`))

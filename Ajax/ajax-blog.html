@@ -9,7 +9,7 @@
         <title>AJAX-BLOG </title>
 </head>
 <body class="black-skin">
-<div id="posts" class="" style="background-image: url('../assets/90sMusicVideoBackground.jpeg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+<div id="posts" class="" style="background-image: url('../assets/lightsaber.jpeg'); background-repeat: no-repeat; background-size: cover; background-position: center, center;">
 
 
             <script>
@@ -20,11 +20,11 @@
                         console.log(data);
 
                         $.each(data, function (i, post) {
-                            $('#posts').append(`<div class="align-middle col-lg-12 badge badge-pill badge-secondary text-align:center text-light bg-dark font-weight-bolder ">${post.title}</div>
-                                        <div class="">${post.content}</div>
+                            $('#posts').append(`<div class="align-middle col-lg-1 badge badge-pill badge-secondary text-align:center text-light bg-dark font-weight-bolder ">${post.title}</div>
+                                        <div class="text-light m-auto">${post.content}</div>
                                         <div class="d-none">${post.categories}</div
 
-                    <div class="text-muted">${post.date}</div>`)
+                    <div class="m-auto text-white">${post.date}</div>`)
                         });
                     });
             })();

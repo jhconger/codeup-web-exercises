@@ -20,11 +20,10 @@
                         console.log(data);
 
                         $.each(data, function (i, post) {
-                            $('#posts').append(`<div class="align-middle col-lg-1 badge badge-pill badge-secondary text-align:center text-light bg-dark font-weight-bolder ">${post.title}</div>
-                                        <div class="text-light m-auto">${post.content}</div>
-                                        <div class="d-none">${post.categories}</div
-
-                    <div class="m-auto text-white">${post.date}</div>`)
+                            $('#posts').append(`<div class=" h-1 d-flex justify-content-md-around align-content-center badge-xl badge-pill badge-secondary text-align:center text-light  font-weight-bolder ">${post.title}</div>
+                                        <div class="text-light m-4">${post.content}</div>
+                                        <div class="d-none">${post.categories}</div>
+                    <div class="m-4  text-align:center text-light">${post.date}</div><br>`)
                         });
                     });
             })();

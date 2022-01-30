@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>First Mapbox Map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Mapbox CSS -->
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
@@ -14,7 +15,9 @@
             height: 700px;
         }
         h1 {
+            background-color: #0fb784;
             text-align: center;
+            border-radius: 25px;
         }
         button{
             border-radius: 25px;
@@ -24,14 +27,13 @@
 </head>
 <body>
 
-<h1 class="jumbotron-container col-6 ">My First Mapbox Map!</h1>
+<h1 class="jumbotron-container col-6 bg-success">My First Mapbox Map!</h1>
 
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
 
 <script src="mapbox-geocoder-utils.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <label>Zoom</label>
 <button id="zoom5" value="zoom x 5">X 5   </button>
@@ -72,7 +74,7 @@
 
 
 </script>
-
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
 

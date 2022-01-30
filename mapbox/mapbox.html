@@ -23,6 +23,10 @@
             border-radius: 25px;
             background-color: lightseagreen;
         }
+        .mapboxgl-popup {
+            max-width: 400px;
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -32,7 +36,8 @@
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
 
-<script src="mapbox-geocoder-utils.js"></script>
+
+
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
 <label>Zoom</label>
@@ -40,26 +45,52 @@
 <button id="zoom10" value="zoom x 10">X 10</button>
 <button id="zoom15" value="zoom x 15">X 15</button>
 <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="./mapbox-geocoder-utils.js"></script>
 <script>
+
+    var accessToken = "pk.eyJ1Ijoiamhjb25nZXIiLCJhIjoiY2t5eGhicmV3MGlqZjJ1bXc1MXdzMnlubSJ9.53Uuao-kj-NGMyyhFNJTMA";
     mapboxgl.accessToken = "pk.eyJ1Ijoiamhjb25nZXIiLCJhIjoiY2t5eGhicmV3MGlqZjJ1bXc1MXdzMnlubSJ9.53Uuao-kj-NGMyyhFNJTMA";
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 10,
         center: [-98.4916, 29.4252]
-
     });
-    const marker= new mapboxgl.Marker().setLngLat([-98.49773, 29.61029])
-        .addTo(map);
 
-
-
+    // the  geocode method from mapbox-geocoder-utils.js
+    // geocode("4051 Broadway, San Antonio, TX 78209", "pk.eyJ1Ijoiamhjb25nZXIiLCJhIjoiY2t5eGhicmV3MGlqZjJ1bXc1MXdzMnlubSJ9.53Uuao-kj-NGMyyhFNJTMA").then(function(result) {
+    //     console.log(result);
+    //     map.setCenter(result);
+    //     map.setZoom(20);
+    // });
+    const marker= new mapboxgl.Marker().setLngLat([-98.4664613578, 29.463483591366])
+                .addTo(map);
 
     const nav = new mapboxgl.NavigationControl({
         showZoom:true
     });
     map.addControl(nav, 'bottom-right');
 
+    var koiInfo = {
+        address: "4051 Broadway, San Antonio, TX 78209",
+        popupHTML: "<p>Koi Kawa Sushi Rocks!</p>"
+    };
+
+    function placeMarkerAndPopup(info, token, map) {
+        geocode(info.address, token).then(function(coordinates) {
+            var popup = new mapboxgl.Popup()
+                .setHTML(info.popupHTML);
+            var marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map)
+                .setPopup(popup);
+                popup.addTo(map);
+            })
+
+    }
+    map.on('click', (e) => {
+        placeMarkerAndPopup(koiInfo, accessToken, map);
+    });
     $(document).ready(function() {
         $('#zoom5').click(function (e) {
             map.flyTo({zoom: 5});
@@ -71,9 +102,8 @@
             });
         });
     });
-
-
 </script>
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>

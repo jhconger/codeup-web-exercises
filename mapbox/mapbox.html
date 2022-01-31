@@ -42,7 +42,7 @@
             background-color:#0069d9;
 
         }
-        .mapboxgl-popup {
+        p {
             max-width: 200px;
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
             background-color: lightseagreen;
@@ -86,12 +86,6 @@
         center: [-98.4916, 29.4252]
     });
 
-    // the  geocode method from mapbox-geocoder-utils.js
-    // geocode("4051 Broadway, San Antonio, TX 78209", "pk.eyJ1Ijoiamhjb25nZXIiLCJhIjoiY2t5eGhicmV3MGlqZjJ1bXc1MXdzMnlubSJ9.53Uuao-kj-NGMyyhFNJTMA").then(function(result) {
-    //     console.log(result);
-    //     map.setCenter(result);
-    //     map.setZoom(20);
-    // });
     const marker= new mapboxgl.Marker().setLngLat([-98.4664613578, 29.463483591366])
                 .addTo(map);
 

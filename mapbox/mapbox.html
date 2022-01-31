@@ -6,14 +6,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../mapbox/mapbox.css">
     <!-- Mapbox CSS -->
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
     <!-- Custom CSS -->
     <style>
-        #map {
-            /* the width and height may be set to any size */
-            width: 100%;
-            height: 700px;
-        }
+
+
+
     </style>
 </head>
 <body>
@@ -24,68 +22,162 @@
 <div id='map'></div>
 
 
-
+<script src="../js/api keys.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
 <label>ZOOM</label>
-<button id="zoom5" value="zoom x 5">X 5   </button>
+<button id="zoom5" value="zoom x 5">X 5</button>
 <button id="zoom10" value="zoom x 10">X 10</button>
 <button id="zoom15" value="zoom x 15">X 15</button>
-<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<button class="removeMarkers" id="pop" value="popup">Remove Markers</button>
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
 <script src="./mapbox-geocoder-utils.js"></script>
 <script>
-
-    var accessToken = "pk.eyJ1Ijoiamhjb25nZXIiLCJhIjoiY2t5eGhicmV3MGlqZjJ1bXc1MXdzMnlubSJ9.53Uuao-kj-NGMyyhFNJTMA";
-    mapboxgl.accessToken = "pk.eyJ1Ijoiamhjb25nZXIiLCJhIjoiY2t5eGhicmV3MGlqZjJ1bXc1MXdzMnlubSJ9.53Uuao-kj-NGMyyhFNJTMA";
+    mapboxgl.accessToken = token;
+    const marker = new mapboxgl.Marker({
+        color: '#F84C4C' // color it red
+    });
+    var accessToken = token;
+    mapboxgl.accessToken = token;
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 10,
         center: [-98.4916, 29.4252]
     });
-
-    const marker= new mapboxgl.Marker().setLngLat([-98.4664613578, 29.463483591366])
-                .addTo(map);
-
     const nav = new mapboxgl.NavigationControl({
-        showZoom:true
+        showZoom: true
     });
     map.addControl(nav, 'bottom-right');
+    const geocoder = new MapboxGeocoder({
+        // Initialize the geocoder
+        accessToken: mapboxgl.accessToken, // Set the access token
+        mapboxgl: mapboxgl, // Set the mapbox-gl instance
+        marker: false // Do not use the default marker style
+    });
 
-    var koiInfo = {
-        address: "4051 Broadway, San Antonio, TX 78209",
-        popupHTML: "<p>Koi Kawa Sushi Rocks!</p>"
-    };
+    // Add the geocoder to the map
+    map.addControl(geocoder);
+    map.on('load', () => {
+        map.addSource('single-point', {
+            type: 'geojson',
+            data: {
+                type: 'FeatureCollection',
+                features: []
+            }
+        });
+
+        map.addLayer({
+            id: 'point',
+            source: 'single-point',
+            type: 'circle',
+            paint: {
+                'circle-radius': 10,
+                'circle-color': '#448ee4'
+            }
+        });
+
+        // Listen for the `result` event from the Geocoder
+        // `result` event is triggered when a user makes a selection
+        //  Add a marker at the result's coordinates
+        geocoder.on('result', (event) => {
+            map.getSource('single-point').setData(event.result.geometry);
+        });
+    });
+
+    let favorites = [
+        koi = {
+            address: "4051 Broadway, San Antonio, TX 78209",
+            popupHTML: "<p>Koi Kawa Sushi Rocks!</p>"
+        },
+        chama = {
+            address: "18318 Sonterra Pl, San Antonio, TX 78258",
+            popupHTML: "<p>Chama Gaucha Brazilian Steakhouse for a great Meat-Cute!</p>"
+        },
+        pho = {
+            address: "4230 McCullough Ave ",
+            popupHTML: "<p>Pho Kim Long for Best Raw Steak Pho!</p>"
+        }
+
+    ];
+
+
+    function animateMarker(timestamp) {
+        const radius = 1;
+
+        marker.setLngLat([
+            Math.cos(timestamp / 100) * radius,
+            Math.sin(timestamp / 100) * radius
+        ]);
+
+
+        requestAnimationFrame(animateMarker);
+    }
+    requestAnimationFrame(animateMarker);
+
 
     function placeMarkerAndPopup(info, token, map) {
-        geocode(info.address, token).then(function(coordinates) {
+        geocode(info.address, token).then(function (coordinates) {
             var popup = new mapboxgl.Popup()
                 .setHTML(info.popupHTML);
             var marker = new mapboxgl.Marker()
                 .setLngLat(coordinates)
                 .addTo(map)
                 .setPopup(popup);
-                popup.addTo(map);
-            })
-
+        });
     }
-    map.on('click', (e) => {
-        placeMarkerAndPopup(koiInfo, accessToken, map);
+
+    $('#favorites').click(function () {
+        geocode("4051 Broadway, San Antonio, TX 78209", token).then(function (result) {
+            map.setCenter(result);
+            map.setZoom(15);
+        });
+        placeMarkerAndPopup(koi, token, map);
+
     });
-    $(document).ready(function() {
+
+    favorites.forEach((restaurant) => {
+        placeMarkerAndPopup(restaurant, token, map);
+    });
+
+    $(document).ready(function () {
         $('#zoom5').click(function (e) {
             map.flyTo({zoom: 5});
-            $('#zoom10').click(function (e) {
-                map.flyTo({zoom: 10});
-                $('#zoom15').click(function (e) {
-                    map.flyTo({zoom: 15});
-                })
-            });
+        });
+            $(document).ready(function () {
+                $('#zoom10').click(function (e) {
+                    map.flyTo({zoom: 10});
+                });
+                    $(document).ready(function () {
+                        $('#zoom15').click(function (e) {
+                            map.flyTo({zoom: 15});
+                        })
+                    });
+                });
+    });
+
+
+    $(document).ready(function () {
+        $(".removeMarkers").click(function () {
+            $('svg').toggle()
         });
     });
+
+
+
+    // Add a new Marker.
+
+
+    // Define the animation.
+
+
 </script>
- <footer></footer>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<footer></footer>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 </body>
 </html>
 

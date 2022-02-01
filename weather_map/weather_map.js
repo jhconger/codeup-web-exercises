@@ -77,101 +77,76 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
     })
     map.addControl(geocoder)
 
-    marker.on('dragend', function () {
-        var currentLocation = marker.getLngLat()
-        console.log(currentLocation)
-        // $('#weather').empty();
-        // weather(currentLocation)
-    });
-
+marker.on('dragend', function() {
+    var lat = marker.getLngLat().lat
+    var lng = marker.getLngLat().lng
+    var currentLocation = [lat, lng]
+    console.log(currentLocation);
+    $('#weather').empty();
+    weather(currentLocation)
+})
 //search function
-//     $('#button').click(function(e){
-//         //the below is the same as console.log(e.target.value);
-//         var userInput = $('#userInput').val()
-//         console.log(userInput);
-//         var searchLocation = geocode(userInput, token);
-//         searchLocation.then(function(coordinates){
-//             console.log(coordinates)
-//             var searchLat = coordinates[0];
-//             var searchLng = coordinates[1];
-//             var userCoordinates = [searchLat, searchLng];
-//             console.log(userCoordinates);
-//             $('#weather-info').empty();
-//             marker.setLngLat(userCoordinates);
-//             weather([searchLng, searchLat]);
-//
-//             map.flyTo({
-//                 center:[coordinates[0], coordinates[1]]
-//             })
-//
-//
-//         });
-//
-//     })
+    $('#button').click(function(e){
+        //the below is the same as console.log(e.target.value);
+        var userInput = $('#userInput').val()
+        console.log(userInput);
+        var searchLocation = geocode(userInput, token);
+        searchLocation.then(function(coordinates){
+            console.log(coordinates)
+            var searchLat = coordinates[0];
+            var searchLng = coordinates[1];
+            var userCoordinates = [searchLat, searchLng];
+            console.log(userCoordinates);
+            $('#weather').empty();
+            marker.setLngLat(userCoordinates);
+            weather([searchLng, searchLat]);
+
+            map.flyTo({
+                center:[coordinates[0], coordinates[1]]
+            })
 
 
-// weather forecast API
-//
-//
-//
-    var currentLocation = marker.getLngLat()
-
-    function weather() {
-        $.get("http://api.openweathermap.org/data/2.5/onecall", {
-            APPID: weathertoken,
-            lat: 'lat',
-            lon: 'lon',
-            currentLocation,
-            units: "imperial"
-        }).done(function (data) {
-            console.log(data);
         });
-    }
+
+    })
+
+function weather(x) {
+    $.ajax(`https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=${x[0]}&lon=${x[1]}&exclude=current, hourly, minutely&appID=${weathertoken}`).done(function (resp) {
+        console.log(resp)
+
+        for (var i = 0; i <= 4; i++) {
+            var todayDate = new Date(resp.daily[i].dt * 1000).toDateString();
+            var weatherDiv = '';
+            console.log(todayDate);
+            var currentTemp = resp.daily[i].temp.day.toFixed(0);
+            weatherDiv += '<div class="card col-5 card-header" style="width: 18em;">' + todayDate
+            weatherDiv += '<div class="list-group-item">' + "Current Temperature: " + currentTemp + '</div>'
+            weatherDiv += '<div class="list-group-item">' + "Description: " + resp.daily[i].weather[0].description + '</div>'
+            weatherDiv += '<div class="list-group-item">' + '<img src=http://openweathermap.org/img/w/' + resp.daily[0].weather[0].icon + '.png></div>'
+            weatherDiv += '<div class="list-group-item">' + "Humidity %" + resp.daily[i].humidity + '</div>'
+            weatherDiv += '<div class="list-group-item">' + "Wind Speed: " + resp.daily[i].wind_speed + '</div>'
+            weatherDiv += '<div class="list-group-item">' + "Pressure: " + resp.daily[i].pressure + '</div>'
+            weatherDiv += '</div>'
+            weatherDiv += '</div>'
 
 
+            $('#weather').append(weatherDiv);
+            console.log(weatherDiv);
+        }
+    });
+}
 
+    var saCoordinates = [29.4241, -98.4936];
+    weather(saCoordinates);
 
-//     $.ajax("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + x[0] +
-//         "&lon=" + x[1] + "&exclude=current, hourly, minutely&appID=" + weathertoken).done(function (resp) {
-//         console.log(resp);
-//     });
-// });
-//             var weatherDiv = '';
-//             for(var i = 0; i <=4; i++) {
-
-//
-//                 /* console.log(resp);*/
-//                 var todayDate = new Date(resp.daily[i].dt * 1000).toDateString();
-//                 /*  console.log(todayDate);*/
-//                 var currentTemp = resp.daily[i].temp.day.toFixed(0);
-//                 weatherHTML += '<div class="col-2 card-header" style="width: 18em;">' + todayDate
-//                 weatherHTML += '<div class="list-group-item"><p>' + "Current Temperature: " + currentTemp + '</p></div>'
-//                 weatherHTML += '<div class="list-group-item"><p>' + "Description: " + resp.daily[i].weather[0].description + '</p></div>'
-//                 weatherHTML += '<div class="list-group-item"><p>' + '<img src=http://openweathermap.org/img/w/' + resp.daily[0].weather[0].icon + '.png></p></div>'
-//                 weatherHTML += '<div class="list-group-item"><p>' + "Humidity %" + resp.daily[i].humidity + '</p></div>'
-//                 weatherHTML += '<div class="list-group-item"><p>' + "Wind Speed: " + resp.daily[i].wind_speed + '</p></div>'
-//                 weatherHTML += '<div class="list-group-item"><p>' + "Pressure: " + resp.daily[i].pressure + '</p></div>'
-//                 weatherHTML += '</div>'
-//                 weatherHTML += '</div>'
-//
-//             }
-//             $('#weather-info').append(weatherHTML);
-//             /*     console.log(weatherHTML);*/
-//         })
-//
-//     }
-//     var saCoordinates = [29.4241, -98.4936];
-//     weather(saCoordinates);
-//
-//     function geocode(search, token) {
-//         var baseUrl = 'https://api.mapbox.com';
-//         var endPoint = '/geocoding/v5/mapbox.places/';
-//         return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
-//             .then(function (res) {
-//                 return res.json();
-//                 // to get all the data from the request, comment out the following three lines...
-//             }).then(function (data) {
-//                 return data.features[0].center;
-//             });
-//     }
-// });
+    function geocode(search, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+            .then(function (res) {
+                return res.json();
+                // to get all the data from the request, comment out the following three lines...
+            }).then(function (data) {
+                return data.features[0].center;
+            });
+}

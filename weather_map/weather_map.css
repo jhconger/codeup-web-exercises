@@ -1,0 +1,78 @@
+#map {
+    /* the width and height may be set to any size */
+    width: 100%;
+    height: 700px;
+}
+marker {
+    background-image: url(../assets/mapbox-icon.png);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.mapboxgl-popup{
+
+}
+h1 {
+    border-radius: 50px 50px 0 0;
+    background: #73AD21;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    color: #0069d9;
+    margin: 0;
+}
+footer {
+    border-radius: 0 0 50px 50px;
+    background: #73AD21;
+    padding: 2px;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    color: #0069d9;
+}
+
+label {
+    font-weight: bolder;
+    position: absolute; top: 776px; bottom: 0; left: 560PX; width: 100%;
+    color: #0069d9;
+}
+button{
+    border-radius: 25px;
+    background-color:#0069d9;
+
+}
+
+.removeMarkers{
+    position: absolute; top: 776px; bottom: 0; height: 20px; left: 360PX;
+}
+
+p {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: lightseagreen;
+    margin: 0;
+    padding: 0;
+}
+#zoom5 {
+    position: absolute; top: 775px; bottom: 0; left: 620px; height: 20px;
+}
+#zoom10 {
+    position: absolute; top: 775px; bottom: 0; left: 660px; height: 20px;
+}
+#zoom15 {
+    position: absolute; top: 775px; bottom: 0; left: 710px; height: 20px;
+}
+.coordinates {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+    border-radius: 3px;
+    display: none;
+}

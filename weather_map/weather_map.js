@@ -1,7 +1,5 @@
 mapboxgl.accessToken = token;
 var accessToken = token;
-mapboxgl.accessToken = token;
-mapboxgl.accessToken = token;
 const coordinates = document.getElementById('coordinates');
 const map = new mapboxgl.Map({
     container: 'map',
@@ -9,6 +7,15 @@ const map = new mapboxgl.Map({
     center: [-98.4916, 29.4252],
     zoom: 8
 });
+const layerList = document.getElementById('menu');
+const inputs = layerList.getElementsByTagName('input');
+
+for (const input of inputs) {
+    input.onclick = (layer) => {
+        const layerId = layer.target.id;
+        map.setStyle('mapbox://styles/mapbox/' + layerId);
+    };
+}
 const nav = new mapboxgl.NavigationControl({
     showZoom: true
 });
@@ -75,7 +82,7 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
             console.log(lngLat['lng'])
         })
     })
-    map.addControl(geocoder)
+    // map.addControl(geocoder)
 
 marker.on('dragend', function() {
     var lat = marker.getLngLat().lat
@@ -87,7 +94,6 @@ marker.on('dragend', function() {
 })
 //search function
     $('#button').click(function(e){
-        //the below is the same as console.log(e.target.value);
         var userInput = $('#userInput').val()
         console.log(userInput);
         var searchLocation = geocode(userInput, token);
@@ -104,10 +110,7 @@ marker.on('dragend', function() {
             map.flyTo({
                 center:[coordinates[0], coordinates[1]]
             })
-
-
         });
-
     })
 
 function weather(x) {

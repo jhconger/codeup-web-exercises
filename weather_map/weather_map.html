@@ -17,13 +17,31 @@
 <body>
 <h1>Weather Map</h1>
 <div id='map'></div>
+
 <footer></footer>
 <div class="row">
-    <div class="col" id="location"></div>
+    <div class="card-body" id="location"></div>
 </div>
 <pre id="coordinates" class="coordinates"></pre>
-<div id="weather" class="row d-flex justify-content-around"></div>
-<button id="dark-mode" type="button">Dark Mode</button>
+<!--<button id="dark-mode" type="button">Dark Mode</button>-->
+<input class="search" id="userInput" type="text">
+<button id="button" type="button">Search</button>
+<div id="menu">
+    <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
+    <!-- See a list of Mapbox-hosted public styles at -->
+    <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
+    <label class="map-style" for="satellite-v9">Satellite</label>
+    <input id="light-v10" type="radio" name="rtoggle" value="light">
+    <label class="map-style" for="light-v10">Light</label>
+    <input id="dark-v10" type="radio" name="rtoggle" value="dark">
+    <label class="map-style" for="dark-v10">Dark</label>
+    <input id="streets-v11" type="radio" name="rtoggle" value="streets">
+    <label class="map-style" for="streets-v11">Streets</label>
+    <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
+    <label class="map-style" for="outdoors-v11">Outdoors</label>
+</div>
+
+<div id="weather"></div>
 
 
 <script src="../js/api keys.js"></script>
@@ -32,13 +50,12 @@
 <link rel='stylesheet'
       href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
       type='text/css'/>
-<label>ZOOM</label>
+<label class="zoom">ZOOM</label>
 <button id="zoom5" value="zoom x 5">X 5</button>
 <button id="zoom10" value="zoom x 10">X 10</button>
 <button id="zoom15" value="zoom x 15">X 15</button>
 <button class="removeMarkers" id="pop" value="popup">Remove Markers</button>
-<input id="userInput" type="text">
-<button id="button" type="button">Search</button>
+
 <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
         crossorigin="anonymous"></script>
 <script src="../mapbox/mapbox-geocoder-utils.js"></script>

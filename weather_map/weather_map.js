@@ -153,25 +153,29 @@ function weather(x) {
                 return data.features[0].center;
             });
 }
-map.addSource("twcRadar", {
-    tiles: [
-        "https://api.weather.com/v3/TileServer/tile/radar?ts=" + latestTimeSclice + "&xyz={x}:{y}:{z}&apiKey=" + weatherkey,
-    ],
-    tileSize: 256,
-});
-    map.addLayer(
-        {
-            id: "radar",
-            type: "raster",
-            source: "twcRadar",
-            paint: {
-                "raster-opacity": 0.5,
-            },
-        },
-        "aeroway-line"
-    );
-    const longitude = e.result.geometry.coordinates[0];
-    const latitude = e.result.geometry.coordinates[1];
-
-    const currentConditionsUrl = "https://api.weather.com/v1/gecode/" + latitude + "/" + longitude +"/observations.json?language=en-Us&units=e&apiKey=" + weatherkey
-    console.log(currentConditionsUrl)
+// $.ajax(`https://api.weather.com/v3/TileServer/tile/radar?ts=&xyz={x}:{y}:{z}&apiKey=${weatherkey}`).done(function (resp) {
+    // console.log(resp);
+// };
+    // var latestTimeSclice =
+// map.addSource("twcRadar", {
+//     tiles: [
+//         "https://api.weather.com/v3/TileServer/tile/radar?ts=" + latestTimeSclice + "&xyz={x}:{y}:{z}&apiKey=" + weatherkey,
+//     ],
+//     tileSize: 256,
+// });
+//     map.addLayer(
+//         {
+//             id: "radar",
+//             type: "raster",
+//             source: "twcRadar",
+//             paint: {
+//                 "raster-opacity": 0.5,
+//             },
+//         },
+//         "aeroway-line"
+//     );
+//     const longitude = e.result.geometry.coordinates[0];
+//     const latitude = e.result.geometry.coordinates[1];
+//
+//     const currentConditionsUrl = "https://api.weather.com/v1/gecode/" + latitude + "/" + longitude +"/observations.json?language=en-Us&units=e&apiKey=" + weatherkey
+//     console.log(currentConditionsUrl)

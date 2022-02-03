@@ -19,7 +19,7 @@ for (const input of inputs) {
 const nav = new mapboxgl.NavigationControl({
     showZoom: true
 });
-
+map.addControl(nav, 'bottom-right');
 $(document).ready(function () {
     $('#zoom5').click(function (e) {
         map.flyTo({zoom: 5});

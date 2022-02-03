@@ -3,6 +3,8 @@
     width: 100%;
     height: 700px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-left: solid 2px #12bbd5;
+    border-right: solid 2px #12bbd5;
 }
 
 marker {
@@ -24,19 +26,19 @@ h1 {
     color: #0d0da6;
     margin: 0;
     background: radial-gradient(circle, rgba(42, 179, 212, 1) 0%, rgba(14, 34, 205, 1) 100%);
-
+    border: solid 2px #12bbd5;
 
 }
 
 footer {
     border-radius: 0 0 50px 50px;
-
     padding: 0;
     text-align: center;
     width: 100%;
     height: 50px;
     color: #0d0da6;
     background: radial-gradient(circle, rgba(42, 179, 212, 1) 0%, rgba(14, 34, 205, 1) 100%);
+    border: solid 2px #12bbd5;
 }
 
 .zoom {

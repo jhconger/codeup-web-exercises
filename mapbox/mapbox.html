@@ -36,9 +36,7 @@
 <script src="./mapbox-geocoder-utils.js"></script>
 <script>
     mapboxgl.accessToken = token;
-    const marker = new mapboxgl.Marker({
-        color: '#F84C4C' // color it red
-    });
+
     var accessToken = token;
     mapboxgl.accessToken = token;
     var map = new mapboxgl.Map({
@@ -103,21 +101,6 @@
 
     ];
 
-
-    function animateMarker(timestamp) {
-        const radius = 1;
-
-        marker.setLngLat([
-            Math.cos(timestamp / 100) * radius,
-            Math.sin(timestamp / 100) * radius
-        ]);
-
-
-        requestAnimationFrame(animateMarker);
-    }
-    requestAnimationFrame(animateMarker);
-
-
     function placeMarkerAndPopup(info, token, map) {
         geocode(info.address, token).then(function (coordinates) {
             var popup = new mapboxgl.Popup()
@@ -135,7 +118,6 @@
             map.setZoom(15);
         });
         placeMarkerAndPopup(koi, token, map);
-
     });
 
     favorites.forEach((restaurant) => {
@@ -166,11 +148,6 @@
     });
 
 
-
-    // Add a new Marker.
-
-
-    // Define the animation.
 
 
 </script>

@@ -5,19 +5,11 @@
     <title>First Weather Map</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../weather_map/weather_map.css">
-
-    <!-- Mapbox CSS -->
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
-    <!-- Custom CSS -->
-    <style>
-
-
-    </style>
 </head>
 <body>
 <h1>Weather Map</h1>
 <div id='map'></div>
-
 <footer></footer>
 <div class="row">
     <div class="card-body" id="location"></div>
@@ -37,26 +29,20 @@
     <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
     <label class="map-style" for="outdoors-v11">Outdoors</label>
 </div>
-
 <div id="weather"></div>
-
+<div class="btn">
+    <label class="zoom">ZOOM</label>
+    <button id="zoom5" value="zoom x 5">X 5</button>
+    <button id="zoom10" value="zoom x 10">X 10</button>
+    <button id="zoom15" value="zoom x 15">X 15</button>
+    <button class="removeMarkers" id="pop" value="popup">Remove Markers</button>
+</div>
 <script src="../js/api keys.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
-<link rel='stylesheet'
-      href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
-      type='text/css'/>
-<div class="btn">
-<label class="zoom">ZOOM</label>
-<button id="zoom5" value="zoom x 5">X 5</button>
-<button id="zoom10" value="zoom x 10">X 10</button>
-<button id="zoom15" value="zoom x 15">X 15</button>
-<button class="removeMarkers" id="pop" value="popup">Remove Markers</button>
-</div>
-<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-        crossorigin="anonymous"></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css'/>
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 <script src="../mapbox/mapbox-geocoder-utils.js"></script>
-
 <script src="weather_map.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"

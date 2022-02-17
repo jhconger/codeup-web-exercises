@@ -52,3 +52,24 @@
     console.log("Circle information rounded to the nearest whole number");
     circle.logInfo(true);
 })();
+// write a function that takes a string as argument and returns the number of vowels contained in that string.
+//     The vowels are “a”, “e”, “i”, “o”, “u”.
+input: "helicopter"
+// output: 4
+// reason: there are 4 vowels in the input word helicopter
+function vowel_count(str1)
+{
+    var vowel_list = 'aeiouAEIOU';
+    var vcount = 0;
+
+    for(var x = 0; x < str1.length ; x++)
+    {
+        if (vowel_list.indexOf(str1[x]) !== -1)
+        {
+            vcount += 1;
+        }
+
+    }
+    return vcount;
+}
+console.log(vowel_count("helicopter"));

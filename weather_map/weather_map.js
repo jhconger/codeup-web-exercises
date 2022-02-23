@@ -122,13 +122,20 @@ function weather(x) {
             var weatherDiv = '';
             console.log(todayDate);
             var currentTemp = resp.daily[i].temp.day.toFixed(0);
+            var highTemp = resp.daily[i].temp.max.toFixed(0);
+            var lowTemp = resp.daily[i].temp.min.toFixed(0);
+            var feelsLike = resp.daily[i].feels_like.day.toFixed(0);
             weatherDiv += '<div class="card col-5 card-header" style="width: 18em;">' + todayDate
-            weatherDiv += '<div class="list-group-item">' + "Current Temperature: " + currentTemp + '</div>'
+            weatherDiv += '<div class="list-group-item">' + "Current Temperature: " + currentTemp +'</div>'
+            weatherDiv += '<div class="list-group-item">' + "High Temperature: " + highTemp + '</div>'
+            weatherDiv += '<div class="list-group-item">' + "Low Temperature: " + lowTemp + '</div>'
+            weatherDiv += '<div class="list-group-item">' + "Feels Like: " + feelsLike + '</div>'
             weatherDiv += '<div class="list-group-item">' + "Description: " + resp.daily[i].weather[0].description + '</div>'
             weatherDiv += '<div class="list-group-item">' + '<img src=http://openweathermap.org/img/w/' + resp.daily[0].weather[0].icon + '.png></div>'
             weatherDiv += '<div class="list-group-item">' + "Humidity %" + resp.daily[i].humidity + '</div>'
             weatherDiv += '<div class="list-group-item">' + "Wind Speed: " + resp.daily[i].wind_speed + '</div>'
             weatherDiv += '<div class="list-group-item">' + "Pressure: " + resp.daily[i].pressure + '</div>'
+
             weatherDiv += '</div>'
             weatherDiv += '</div>'
 

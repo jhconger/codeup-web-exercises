@@ -6,12 +6,19 @@
 <body>
 <h1>Konami Code</h1>
 <p id="textfield">Please enter the Konami Code using your keyboard.</p>
+<button>Hint</button>
 
 <script src="../js/jquery-2.2.4.js"></script>
 
 <script>
     "use strict";
-
+    $('button').css({
+        "background-color": "grey",
+        "font-size": "30px",
+        "color": "blue",
+        "border-radius": "25px",
+        "padding": "15px"
+    });
     $('body').css({
         "background-color": "coral",
         "font-size": "32px",
@@ -28,6 +35,9 @@
     $(document).keyup(function (event) {
         console.log(event.keyCode);
     });
+    $( "button" ).click(function () {
+        alert("Up, Up, Down, Down, Left, Right, Left, Right, b, a, Enter")
+    });
     var pressed = [];
     var secretCode = '3838404037393739666513'
     $(document).keyup(
@@ -40,10 +50,9 @@
             $('body').css({"background-color": "black", "color": "blue"});
             var intervalId = window.setInterval(function () {
                 cornify_add();
-            }, 5);
+            });
         }
         console.log(pressed);
-
     });
 
     // play a song when user interacts with page

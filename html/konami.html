@@ -36,24 +36,24 @@
         console.log(event.keyCode);
     });
     $( "button" ).click(function () {
-        alert("Up, Up, Down, Down, Left, Right, Left, Right, b, a, Enter")
+        alert("(Use Arrow Keys) Up, Up, Down, Down, Left, Right, Left, Right, b, a, Enter")
     });
     var pressed = [];
     var secretCode = '3838404037393739666513'
     $(document).keyup(
-    (e) => {
-        console.log(e.key);
-        pressed.push(event.keyCode);
-        pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
-        if (pressed.join('').includes(secretCode)) {
-            alert("You have added 30 lives!")
-            $('body').css({"background-color": "black", "color": "blue"});
-            var intervalId = window.setInterval(function () {
-                cornify_add();
-            });
-        }
-        console.log(pressed);
-    });
+        (e) => {
+            console.log(e.key);
+            pressed.push(event.keyCode);
+            pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+            if (pressed.join('').includes(secretCode)) {
+                alert("You have added 30 lives!")
+                $('body').css({"background-color": "black", "color": "blue"});
+                var intervalId = window.setInterval(function () {
+                    cornify_add();
+                });
+            }
+            console.log(pressed);
+        });
 
     // play a song when user interacts with page
     let song = new Audio("../assets/Absolution.webm");
@@ -70,4 +70,3 @@
 
 <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
 </html>
-
